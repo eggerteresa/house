@@ -26,7 +26,9 @@ public class DiscountMix {
         // eigentlich benötigen wir hier einen Scan. der sammelt die Beträge. dann machen wir eine Summe. und berechnen dann den Discount
 
         double prizeBook;
+        prizeBook = 15+18+23+28;
         double discountBook = 0.1;
+        System.out.println("The discount is" + prizeBook);
 
 
     }
@@ -36,6 +38,8 @@ public class DiscountMix {
             // zweite Kondition: in a bookshop you receive a discount if you buy more than 2 non-fiction books and at least one fiction book.
 
             double discount = prizeBook * discountBook;
+
+
 
             if (fictionBook > 0 && nonfictionBook >= 3) {
                 System.out.println(discount);
