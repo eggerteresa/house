@@ -1,5 +1,8 @@
 package Exercises;
+// Mylas Version!!!
+//Myla
 
+//Myla!!
 public class Discount {
     public static void main(String[] args) {
         double seniorDiscount = 0.15;
