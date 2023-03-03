@@ -44,9 +44,9 @@ public class DiscountMix {
 
 
             }
-
+            return null;
 //  public static double ()
-return null;
+
 
         }
 
