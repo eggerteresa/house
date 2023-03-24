@@ -49,7 +49,6 @@ public class ArrayLottery {
         }
         return randomNumbers;
 
-
     }
 
 }

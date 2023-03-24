@@ -20,24 +20,19 @@ public class Userlogin {
 
             System.out.println("Geben Sie das Passwort ein: ");
             eingabePasswort = scanner.next();
+            count ++;
 
-
-         if (eingabeBenutzername.equals(benutzername) && eingabePasswort.equals(passwort)) {
-               System.out.println("Richtige Benutzerdaten eingegeben");
+            if (!eingabeBenutzername.equals(benutzername) || !eingabePasswort.equals(passwort) ) {
+            System.out.println("Falscher Benutzername oder falsches Passwort. Bitte versuchen Sie es erneut.");
+         }
+         if (count ==3) {
+             System.out.println("Maximale Anzahl von Versuchen erreicht. Programm beenden. ");
              System.exit(0);
-         } else count ++;
-            System.out.println("Versuche es noch einmal");
-
-
-        }   while (count <4 && !eingabeBenutzername.equals(benutzername) || !eingabePasswort.equals(passwort) ) ;
-
-            if (count < 4) {
-               System.out.println("Falscher Benutzername oder falsches Passwort. Bitte versuchen Sie es erneut.");
-            } else if (count < 4) {
-                System.out.println("Maximale Anzahl von Versuchen erreicht. Programm beenden. ");
-               System.exit(0);
-            }
-
+        }
+        }
+        while ( !eingabeBenutzername.equals(benutzername) || !eingabePasswort.equals(passwort))  ;
+        System.out.println("Richtige Benutzerdaten eingegeben");
+        System.exit(0);
 
 
         }
