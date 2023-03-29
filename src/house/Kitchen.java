@@ -1,4 +1,4 @@
-package room;
+package house;
 
 public class Kitchen {
     public static void main(String[] args) {
