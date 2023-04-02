@@ -19,7 +19,10 @@ public class Arrays {
         System.out.println("-----------------");
 
         int [] thirdArray = new int[5];
-        thirdArray[1] =5;
+
+        thirdArray[1] = 5;
+
+
 
         for(int i=0; i< thirdArray.length; i++) {
             System.out.println(thirdArray[i]);
