@@ -16,23 +16,21 @@ public class Tictactoe {
 
     }
 
+
     // Schleife für aktuellen Zustand des Brettes
     public static void spielablauf() {
 
+        // Array initialisieren
 
         int[][] array =
                 {{0, 0, 0},
                         {0, 0, 0},
                         {0, 0, 0}};
 
-        System.out.println("Der aktuelle Spielstand ist: ");
+        //Aktuellen Spielstand abrufen:
 
-        for (int i = 0; i < array.length; i++) {
-            for (int j = 0; j < array[i].length; j++) {
-                System.out.print(array[i][j]);
-            }
-            System.out.println();
-        }
+
+        // Variablen deklarieren und initialisieren
 
         int zeile;
         int spalte;
@@ -42,13 +40,19 @@ public class Tictactoe {
         int counter = 1;
 
 
-
         // Methode gib Zeile und Spalte ein, überprüfen, ob ausgewähltes Feld bereits belegt ist
 
 
-        while (counter <= 10) {
-            int i =0;
-            int j = 0;
+        do {
+            System.out.println("Der aktuelle Spielstand ist: ");
+
+            for (int i = 0; i < array.length; i++) {
+                for (int j = 0; j < array[i].length; j++) {
+                    System.out.print(array[i][j]);
+                }
+                System.out.println();
+            }
+
             Scanner scanner1 = new Scanner(System.in);
             System.out.println("Geben Sie die Zeile an (0, 1, 2) ");
 
@@ -57,66 +61,87 @@ public class Tictactoe {
 
             spalte = scanner1.nextInt();
 
-            if (array[i][j] == array[0][0]) {
-                if (counter%2!=0) {
-                array[zeile][spalte] = spieler1;}
-                if (counter%2==0){
-                    array[zeile][spalte] = spieler2;}
-                counter++;}
-
-
-                if ( array[i][j] != array[0][0]) {
+//            for ( int i = 0; i < array.length; i++) {
+//                for (int j = 0; j < array[i].length; j++) {
+            // prüfen ob das Feld schon belegt ist
+//            do {
+                if (array[zeile][spalte] != 0) {
                     System.out.println("Wählen Sie ein anderes Feld aus, dieses ist schon belegt.");
+
+                    System.out.println("Geben Sie die Zeile an (0, 1, 2) ");
+
+                    zeile = scanner1.nextInt();
+                    System.out.println("Geben Sie die Spalte an (0, 1, 2) ");
+
+                    spalte = scanner1.nextInt();
                 }
 
-            for ( i = 0; i < array.length; i++) {
-                for ( j = 0; j < array[i].length; j++) {
-                    System.out.print(array[i][j]);
+
+                    if (array[zeile][spalte] == 0) {
+
+                        //WAS wird in das Feld eingetragen? 1 oder 2 je nach Spieler
+                        if (counter % 2 != 0) {
+                            array[zeile][spalte] = spieler1;
+                        }
+                        if (counter % 2 == 0) {
+                            array[zeile][spalte] = spieler2;
+                        }
+                        counter++;
+                    }
+
+//            } while (true);
+
+
+
+                if (array[0][0] == 1 && array[1][1] == 1 && array[2][2] == 1) {
+                    System.out.println(" Spieler 1 hat gewonnen");
+                    break;
                 }
-                System.out.println();
+                if (array[0][0] == 2 && array[1][1] == 2 && array[2][2] == 2) {
+                    System.out.println(" Spieler 2 hat gewonnen");
+                    break;
+                }
+
+                if (array[0][0] == 1 && array[1][0] == 1 && array[2][0] == 1) {
+                    System.out.println(" Spieler 1 hat gewonnen");
+                    break;
+                }
+                if (array[0][0] == 2 && array[1][0] == 2 && array[2][0] == 2) {
+                    System.out.println(" Spieler 2 hat gewonnen");
+                    break;
+                }
+
+                if (array[0][1] == 1 && array[1][1] == 1 && array[2][1] == 1) {
+                    System.out.println(" Spieler 1 hat gewonnen");
+                    break;
+                }
+                if (array[0][1] == 2 && array[1][1] == 2 && array[2][1] == 2) {
+                    System.out.println(" Spieler 2 hat gewonnen");
+                    break;
+                }
+            if (array[0][2] == 1 && array[1][1] == 1 && array[2][0] == 1) {
+                System.out.println(" Spieler 1 hat gewonnen");
+                break;
+            }
+            if (array[0][2] == 2 && array[1][1] == 2 && array[2][0] == 2) {
+                System.out.println(" Spieler 2 hat gewonnen");
+                break;
             }
 
 
-                    if (array[0][0] == 1 && array[1][1] == 1 && array[2][2] == 1) {
-                        System.out.println(" Spieler 1 hat gewonnen");
-                        break;
-                    }
-                    if (array[0][0] == 2 && array[1][1] == 2 && array[2][2] == 2) {
-                        System.out.println(" Spieler 2 hat gewonnen");
-                        break;
-                    }
+                if (array[0][2] == 1 && array[1][2] == 1 && array[2][2] == 1) {
+                    System.out.println(" Spieler 1 hat gewonnen");
+                    break;
+                }
+                if (array[0][2] == 2 && array[1][2] == 2 && array[2][2] == 2) {
+                    System.out.println(" Spieler 2 hat gewonnen");
+                    break;
+                }
 
-                    if (array[0][0] == 1 && array[1][0] == 1 && array[2][0] == 1) {
-                        System.out.println(" Spieler 1 hat gewonnen");
-                        break;
-                    }
-                    if (array[0][0] == 2 && array[1][0] == 2 && array[2][0] == 2) {
-                        System.out.println(" Spieler 2 hat gewonnen");
-                        break;
-                    }
-
-                    if (array[0][1] == 1 && array[1][1] == 1 && array[2][1] == 1) {
-                        System.out.println(" Spieler 1 hat gewonnen");
-                        break;
-                    }
-                    if (array[0][1] == 2 && array[1][1] == 2 && array[2][1] == 2) {
-                        System.out.println(" Spieler 2 hat gewonnen");
-                        break;
-                    }
-
-                    if (array[0][2] == 1 && array[1][2] == 1 && array[2][2] == 1) {
-                        System.out.println(" Spieler 1 hat gewonnen");
-                        break;
-                    }
-                    if (array[0][2] == 2 && array[1][2] == 2 && array[2][2] == 2) {
-                        System.out.println(" Spieler 2 hat gewonnen");
-                        break;
-                    }
-
-                    if (array[0][0] == 1 && array[0][1] == 1 && array[0][2] == 1) {
-                        System.out.println(" Spieler 1 hat gewonnen");
-                        break;
-                    }
+                if (array[0][0] == 1 && array[0][1] == 1 && array[0][2] == 1) {
+                    System.out.println(" Spieler 1 hat gewonnen");
+                    break;
+                }
 
                 if (array[0][0] == 2 && array[0][1] == 2 && array[0][2] == 2) {
                     System.out.println(" Spieler 1 hat gewonnen");
@@ -138,17 +163,29 @@ public class Tictactoe {
                     System.out.println(" Spieler 2 hat gewonnen");
                     break;
                 }
-                else {
-                    System.out.println("Das Spiel ist unentschieden!");}
+
+                //Bedingung für untenschieden
+                if (counter > 10) {
+                    System.out.println("Das Spiel ist unentschieden!");
+                    break;
+                }
 
 
+//Neuen Spielstand ausgeben
+//                for (int i = 0; i < array.length; i++) {
+//                    for (int j = 0; j < array[i].length; j++) {
+//                        System.out.print(array[i][j]);
+//                    }
+//                    System.out.println();
+//                }
 
+// Bedingungen für Gewinner ausgeben
 
-
-
-            }
+            } while (counter < 11);
         }
     }
+
+
 
 
 
