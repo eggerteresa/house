@@ -5,13 +5,13 @@ import java.util.Scanner;
 public class Programmauswahlmenue {
     public static void main(String[] args) {
 
-        // Nummer 1 und 3 noch offen!!!!
+
+        System.out.println("DAs Ergebnis der Rekursion ist " + recursion(5));
+
+        int eingabe;
 
 
-        int eingabe = 0;
-
-
-        while (eingabe != 5) {
+        do {
             Scanner scanner = new Scanner(System.in);
             System.out.println("Waehlen Sie bitte  eine Option indem Sie die Zahl der Option eingeben: ");
             System.out.println("1. Umgekehrte Stringausgabe");
@@ -25,15 +25,20 @@ public class Programmauswahlmenue {
 
 
                 case 1: // Wort Buchstaben umdrehen
-                    System.out.println("Geben Sie eine Zeichenfolge ein: ");
                     Scanner scanner2 = new Scanner(System.in);
-                    String zeichenfolge = scanner.nextLine();
-                    int laenge = zeichenfolge.length();
-                    System.out.println(laenge);
-                    int i = 0;
-                    for (i = laenge - 1; i >= 0; i--) {
-                        System.out.println(zeichenfolge.charAt(i));
+                    System.out.println("Geben Sie eine Zeichenfolge ein: ");
+
+                    String zeichenfolge = scanner.next();
+                    //   System.out.println(zeichenfolge);
+//                    int laenge = zeichenfolge.length();
+//                    System.out.println(laenge);
+
+                    for (int i = zeichenfolge.length() - 1; i >= 0; i--) {
+                        zeichenfolge.charAt(i);
+                        System.out.print(zeichenfolge.charAt(i));
                     }
+                    System.out.println();
+
 
                     break;
 
@@ -53,25 +58,30 @@ public class Programmauswahlmenue {
                     Scanner scanner1 = new Scanner(System.in);
                     String satz = scanner1.next();
 
-                    int anzahlVokale = satz.length();
-                    System.out.println(anzahlVokale);
+                    int anzahlVokale = 0;
 
-                    //anzahlVokale =
-                    // satz.contains('a', 'e', 'i', 'o', 'u');
+                    for (int i = 0; i < satz.length(); i++) {
+                        char vok = satz.charAt(i);
+                        if (vok == 'a' || vok == 'e' || vok == 'i' || vok == 'o' || vok == 'u') {
+                            anzahlVokale++;
+                        }
+
+                    }
+                    System.out.println("Die Anzahl der Vokale ist " + anzahlVokale);
 
                     break;
 
                 case 4:  //Fakultät von n
                     System.out.println("Geben Sie eine positive ganze Zahl ein: ");
                     Scanner scanner3 = new Scanner(System.in);
-                    double zahl1 = scanner.nextDouble();
-                    System.out.println(zahl1);
+                    int zahl1 = scanner.nextInt();
+                    // System.out.println(zahl1);
 
 
-                    double fakultaet = 0;
-                    double zahl2 = 1;
+                    int fakultaet = 0;
+                    int zahl2 = 1;
 
-                    for (int a =1; a <= zahl1; a++) {
+                    for (int a = 1; a <= zahl1; a++) {
                         zahl2 = zahl2 * a;
 
                     }
@@ -89,6 +99,14 @@ public class Programmauswahlmenue {
 
             }
 
-        }
+        } while (eingabe != 5);
+
+
+    }
+
+    public static int recursion(int zahl) {
+        if (zahl == 0) {return 1; }
+        else
+        {return zahl * recursion(zahl - 1);}
     }
 }
